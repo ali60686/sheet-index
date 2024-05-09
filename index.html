@@ -1,0 +1,1934 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*::-webkit-scrollbar {
+  width: 0.4rem;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: lightgreen;
+  border-radius: 20px;
+  border: none;
+}
+body {
+  background: linear-gradient(45deg, #7c81ad, #2e4374, #7c81ad, #2e4374);
+  background-size: cover;
+  overflow: hidden;
+  opacity: 0;
+}
+.hidden-header {
+  transform: translateY(-15px);
+  opacity: 0;
+}
+.appear {
+  opacity: 1;
+  transition: all 0.2s ease;
+  transform: translateY(0);
+}
+.header {
+  display: flex;
+  justify-content: center;
+  background: (45deg, #7c81ad, #2e4374, #7c81ad, #2e4374);
+  background-size: cover;
+  transition: all 0.3s ease;
+}
+.buttons {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  height: 50px;
+}
+ul li a {
+  text-decoration: none;
+  color: white;
+  line-height: 50px;
+  border: none;
+  padding: 7px;
+  border-radius: 15px;
+  transition: background 300ms ease-in;
+  font-family: "Ubuntu Mono", monospace;
+  font-size: 24px;
+  position: relative;
+  cursor: pointer;
+}
+.topbuttons {
+  background-color: #2e4374;
+  color: #fff;
+  position: relative;
+  border: 2px solid lightgreen;
+  z-index: 9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45px;
+  transition: all 0.3s ease;
+}
+
+.heading {
+  font-family: "Ubuntu Mono", monospace;
+}
+ul li a:hover {
+  color: white;
+  background-color: lightgreen;
+  color: black;
+  transition: all 0.5s;
+}
+.blocka {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 260px;
+  background: #141e46;
+  background-size: cover;
+  margin-left: 15px;
+  list-style: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  border: 2px solid lightgreen;
+  opacity: 0;
+  transform: translateY(-3rem);
+  /* z-index: 7; */
+}
+.blocka-appear {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 260px;
+  background: #141e46;
+  background-size: cover;
+  margin-left: 15px;
+  list-style: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  border: 2px solid lightgreen;
+  /* opacity: 1;
+  transform: translateY(0); */
+  transition: all 0.5s ease;
+}
+
+.heading {
+  color: rgba(0, 0, 0, 0.562);
+  margin: 10px 0 0px 10px;
+  font-size: 20px;
+  background: rgba(255, 255, 255, 0.658);
+  /* text-align: center; */
+  padding: 4px;
+  border-radius: 15px;
+}
+.index {
+  border: none;
+  font-size: 18px;
+  line-height: 35px;
+  position: relative;
+  z-index: 999;
+}
+.maincontainer {
+  display: flex;
+  margin-top: 10px;
+  position: relative;
+}
+.iecd {
+  font-size: 15px;
+}
+hr {
+  opacity: 0.15;
+}
+.crsr {
+  opacity: 1;
+  position: absolute;
+  animation: heartbeat 1s linear infinite;
+  pointer-events: none;
+  color: #fff;
+}
+.crsr-1 {
+  font-size: 2rem;
+  z-index: 99999;
+  transition: left 50ms linear, top 50ms linear;
+}
+.crsr-2 {
+  font-size: 1.7rem;
+  transition: left 100ms linear, top 100ms linear;
+  z-index: 99998;
+  opacity: 0;
+}
+.crsr-3 {
+  font-size: 1.4rem;
+  transition: left 150ms linear, top 150ms linear;
+  z-index: 99997;
+  opacity: 0;
+}
+.crsr-4 {
+  font-size: 1.1rem;
+  transition: left 200ms linear, top 200ms linear;
+  z-index: 99996;
+  opacity: 0;
+}
+.blur-cursor {
+  width: 250px;
+  height: 250px;
+  position: absolute;
+  background: #00000080;
+  border: 3px solid lightgreen;
+  border-radius: 50%;
+  z-index: 999;
+  pointer-events: none;
+	display: none;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  5% {
+    transform: scale(1.2);
+  }
+  15% {
+    transform: scale(0.9);
+  }
+  30% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1);
+  }
+  70% {
+    transform: scale(0.8);
+  }
+  85% {
+    transform: scale(0.9);
+  }
+  90% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* .blockb{
+        display: none;
+      } */
+
+/* ==============OTHER EXPENDITURE============= */
+.other-expenditure {
+  width: 20%;
+  height: 80%;
+  position: absolute;
+  top: 6rem;
+  left: 65%;
+  background-color: #a2ff86;
+  padding: 0.15rem;
+  z-index: 9999;
+  border-radius: 20px;
+  display: none;
+  font-family: "Ubuntu Mono", monospace;
+  animation: animate 0.3s ease;
+}
+
+@keyframes animate {
+  from {
+    opacity: 0;
+    top: 4rem;
+  }
+  to {
+    opacity: 1;
+    top: 6rem;
+  }
+}
+.show-expenditure {
+  display: block;
+}
+
+.oe-items {
+  background: #141e46;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  border-radius: 20px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  scrollbar-width: 0.5rem;
+}
+.oelinks {
+  text-decoration: none;
+  color: #fff;
+  display: inline-block;
+  padding: 0.7rem 1rem;
+  margin: 5px;
+  border-radius: 30px;
+  transition: all 0.5s ease;
+  transform: translateX(-400px);
+  opacity: 0;
+}
+.oelinks:hover {
+  background-color: #a2ff86;
+  color: #000;
+}
+.background-active {
+  background-color: #a2ff86;
+  color: #000;
+}
+
+/* search for expenditure*/
+#search-expenditure {
+  outline: none;
+  border: 2px solid lightgreen;
+  background: transparent;
+  width: 90%;
+  margin: auto;
+  display: inline-block;
+  color: #fff;
+  padding: 10px;
+  border-radius: 20px;
+  font-family: "Ubuntu Mono", monospace;
+  margin-top: 5px;
+}
+.search-results {
+  width: 100%;
+  height: 100%;
+}
+
+/* Al hifza schedule */
+
+.main {
+  width: 300px;
+  border: 3px solid #90ee90;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #141e46;
+  color: #fff;
+  border-radius: 30px;
+  padding: 2rem 0;
+  position: absolute;
+  top: 1.5rem;
+  display: none;
+  right: 15rem;
+  z-index: 1999999;
+}
+@keyframes animate2 {
+  from {
+    opacity: 0;
+    top: 2rem;
+    /* box-shadow: 0px 0px 0px 0px #fff; */
+  }
+  to {
+    opacity: 1;
+    top: 3.7rem;
+    /* box-shadow: 0px 0px 20px 5px #fff; */
+  }
+}
+.main2 {
+  top: 3.7rem;
+  display: flex;
+  animation: animate2 0.4s ease;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 80%;
+}
+.inputs p {
+  padding: 0 2rem;
+  margin: 0 0 0.4rem 0;
+}
+.text-input {
+  outline: none;
+  border: none;
+  background-color: #141e46;
+  border: 1px solid #90ee90;
+  display: block;
+  height: 2rem;
+  width: 100%;
+  color: #fff;
+  padding: 15px;
+  border-radius: 20px;
+  /* box-shadow: 0 0 5px 2px #90ee90; */
+  transition: 0.4s all ease;
+}
+.outputs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin: 0.8rem 0;
+  border: 1px solid #90ee90;
+  width: 90%;
+  padding: 10px;
+  background-color: #141e46;
+  /* box-shadow: 0 0 8px 1px #90ee90; */
+  border-radius: 10px;
+}
+.outputs .output {
+  display: flex;
+  gap: 3rem;
+  justify-content: space-between;
+}
+.text-input:focus {
+  box-shadow: 0 0 10px 4px #fff;
+  transition: 0.4s all ease;
+  border: #fff;
+}
+.active-tb {
+  background-color: #90ee90;
+  color: #141e46;
+  height: 50px;
+  transform: translateY(5px);
+}
+.topbuttons:hover {
+  height: 50px;
+  transform: translateY(5px);
+}
+	    /*  Response to mobile 920px width */
+@media screen and (max-width: 920px) {
+  body {
+    overflow-y: auto;
+  }
+  .maincontainer {
+    flex-direction: column;
+    margin-top: 2rem;
+  }
+  .crsr {
+    display: none;
+  }
+  .blur-cursor {
+    display: none;
+  }
+  .blocka-appear {
+    width: 90vw;
+    /* height: 50px; */
+    /* overflow: hidden; */
+    margin: auto;
+    box-shadow: none;
+    margin-bottom: 0.7rem;
+  }
+  /* appear class */
+
+  .other-expenditure {
+    width: 90vw;
+    margin: auto;
+    left: 1rem;
+  }
+  .topbuttons {
+    font-size: 14px;
+    height: 25px;
+  }
+  .buttons {
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
+
+    </style>
+    <title>SHEET INDEX</title>
+  </head>
+  <body>
+    <main>
+ 
+    <i class="fa-solid fa-heart crsr crsr-1 opacity-crsr"></i>
+    <i class="fa-solid fa-heart crsr crsr-2 opacity-crsr"></i>
+    <i class="fa-solid fa-heart crsr crsr-3 opacity-crsr"></i>
+    <i class="fa-solid fa-heart crsr crsr-4 opacity-crsr"></i>
+
+    <div class="blur-cursor"></div>
+    <!-- TOP BUTTONS -->
+    <div class="header">
+      <ul class="buttons">
+        <li>
+          <a
+            class="topbuttons"
+            href="https://drive.google.com/drive/u/0/my-drive"
+            target="_blank"
+            >G-Drive</a
+          >
+        </li>
+        <li>
+          <a
+            class="topbuttons"
+            href="https://mail.google.com/mail/u/0/#inbox"
+            target="_blank"
+            >Gmail</a
+          >
+        </li>
+        <li>
+          <a
+            class="topbuttons"
+            href="https://docs.google.com/spreadsheets/d/1fsflalQ94MzreZodb2PTBg0Kx15PaKgR7M5kZ34u1Qw/edit#gid=573652065"
+            target="_blank"
+            >Salaries</a
+          >
+        </li>
+        <li>
+          <a
+            class="topbuttons"
+            href="https://docs.google.com/document/d/1-Q6Q6KZrmaI7V9AroXesHQj-LnK6RjHhtDLTdeGy7HY/edit"
+            target="_blank"
+            >Receipt</a
+          >
+        </li>
+        <li>
+          <a
+            class="topbuttons"
+            href="https://docs.google.com/document/d/1sPEpEZ6VmA11BHZc0PIcCDzm8r2Iz9K0IaEAfO4hc1k/edit"
+            target="_blank"
+            >NOC</a
+          >
+        </li>
+	       <li>
+          <a
+            class="topbuttons"
+            href="https://docs.google.com/document/d/1EmgOJsHSaoCmqps_PkJw3baFgtbalpKfTv_2ooEtZ7E/edit"
+            target="_blank"
+            >Transfer RC</a
+          >
+        </li>
+	<li>
+          <a
+            class="topbuttons"
+            href="https://docs.google.com/document/d/1XDN4y_47H12iLEQV-xV0hh_yoHV9aVDUF6T-UIZhJmw/edit"
+            target="_blank"
+            >Temp RC</a
+          >
+        </li>
+	<li>
+          <a
+            class="topbuttons"
+            href="https://docs.google.com/spreadsheets/d/16eHQkspsnni7MI3oPcL_AYOFXSpWgQ9d9IiEf5LKqzQ/edit?usp=drive_link"
+            target="_blank"
+            >RECOVERY</a
+          >
+        </li>
+	<li>
+          <a 
+            class="topbuttons"  id="clickSchedule"
+            >Schedule</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <!-- INDEX START -->
+
+    <div class="maincontainer">
+      <div class="other-expenditure">
+        <div class="oe-items">
+          <input type="search" placeholder="Search" id="search-expenditure">
+          <div class="search-results"></div>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=0" class="oelinks scrollTriger" target="_blank">OTHER EXPENDITURE</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1668395813" class="oelinks scrollTriger" target="_blank">RAZA HEIGHTS</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=40563091" class="oelinks scrollTriger" target="_blank">FAISAL RESIDENCY</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1919979410" class="oelinks scrollTriger" target="_blank">PETROL PUMP</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=188887027" class="oelinks scrollTriger" target="_blank">HOTEL AL BAKHT</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1191089568" class="oelinks scrollTriger" target="_blank">19-C MUMTAZ</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1738585738" class="oelinks scrollTriger" target="_blank">ADVOCATE</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=112419151" class="oelinks scrollTriger" target="_blank">NAVEEN HEAVEN FLAT 803</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1970153768" class="oelinks scrollTriger" target="_blank">19-C TAJ MUHAMMAD</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1761570101" class="oelinks scrollTriger" target="_blank">SALEEM SWALEH SAMAMA</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1338082980" class="oelinks scrollTriger" target="_blank">19-C SHAFQATULLAH</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1786290073" class="oelinks scrollTriger" target="_blank">KOHESAR LOGISTICS</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1708465908" class="oelinks scrollTriger" target="_blank">19-C RECORD</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=800022764" class="oelinks scrollTriger" target="_blank">AL FATIMA EXPENSE</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=795065869" class="oelinks scrollTriger" target="_blank">RASOOL BUX JAKHRO</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=919546821" class="oelinks scrollTriger" target="_blank">QALANDER BUX BULEDI</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1644833174" class="oelinks scrollTriger" target="_blank">IRSHADULLAH KHASKHELI</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=648939610" class="oelinks scrollTriger" target="_blank">RASHID ELECTION EXPENSE</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=428556141" class="oelinks scrollTriger" target="_blank">RASHID KHASKHELI</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=821403837" class="oelinks scrollTriger" target="_blank">KASHIF KHASKHELI</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=204212463" class="oelinks scrollTriger" target="_blank">SALEEM KHASKHELI</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=564040327" class="oelinks scrollTriger" target="_blank">CHARITY</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=199594586" class="oelinks scrollTriger" target="_blank">MISCELLANOUS</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=729985900" class="oelinks scrollTriger" target="_blank">LOAN</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=2115654920" class="oelinks scrollTriger" target="_blank">GABOL PH/4</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=139564222" class="oelinks scrollTriger" target="_blank">HAMDULLAH / IRSHADULLAH</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=139564222" class="oelinks scrollTriger" target="_blank">HAMDULLAH HAZARVI GABOL</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=381038631" class="oelinks scrollTriger" target="_blank">SALEEM SWALEH PH/4</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1803082502" class="oelinks scrollTriger" target="_blank">SBCA AL HIFZA</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1729703564" class="oelinks scrollTriger" target="_blank">ASHFAQ COMMISSION AF</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1072471288" class="oelinks scrollTriger" target="_blank">AKRAM COMMISSION AF</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=611281183" class="oelinks scrollTriger" target="_blank">MOOSA BHAI COMMISSION AF</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1279316628" class="oelinks scrollTriger" target="_blank">ILYAS TAAK ELECTRIC PH/2</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1561879482" class="oelinks scrollTriger" target="_blank">MEER DATA</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=2139248387" class="oelinks scrollTriger" target="_blank">GHULAM ALI BULEDI HIFZA</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=637382083" class="oelinks scrollTriger" target="_blank">WAZEER KHAN HIFZA</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1663814763" class="oelinks scrollTriger" target="_blank">WAZEER KHAN F-3 MATERIAL</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=692104640" class="oelinks scrollTriger" target="_blank">WAZEER KHAN F-3</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=261936868" class="oelinks scrollTriger" target="_blank">AL HIFZA WATCHMEN</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1106474165" class="oelinks scrollTriger" target="_blank">CHRISTOPHER BHATTI HIFZA</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=242387779" class="oelinks scrollTriger" target="_blank">AL HIFZA EXPENSE</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=314083328" class="oelinks scrollTriger" target="_blank">BOUNDARY WALL AL HIFZA</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1362483371" class="oelinks scrollTriger" target="_blank">AL HIFZA DEVELOPMENT</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=760060537" class="oelinks scrollTriger" target="_blank">LAWYERS AL HIFZA</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1151394521" class="oelinks scrollTriger" target="_blank">ENCHROCHMENT</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=334235564" class="oelinks scrollTriger" target="_blank">POLICE ENCHROCHMENT</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=95485408" class="oelinks scrollTriger" target="_blank">ZAID MUGHAL</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1952793511" class="oelinks scrollTriger" target="_blank">AMEER ALI WATCHMAN HIFZA</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=899308770" class="oelinks scrollTriger" target="_blank">MOUJ ALI WATCHMAN HIFZA</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1455649837" class="oelinks scrollTriger" target="_blank">SHOUQAT ALI WATCHMAN HIFZA</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1913840161" class="oelinks scrollTriger" target="_blank">NADIR ALI WATCHMAN HIFZA</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1325782743" class="oelinks scrollTriger" target="_blank">ZULFIQAR WATCHMAN HIFZA</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=699822283" class="oelinks scrollTriger" target="_blank">WAHID ALI WATCHMAN HIFZA</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=2016284160" class="oelinks scrollTriger" target="_blank">ALI KHAN WATCHMAN HIFZA</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1915029318" class="oelinks scrollTriger" target="_blank">HASSAND ALI WATCHMAN HIFZA</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1671071599" class="oelinks scrollTriger" target="_blank">FIDA HUSSAIN WATCHMAN HIFZA</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=989266686" class="oelinks scrollTriger" target="_blank">JABIR WATCHMAN HIFZA</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=934499324" class="oelinks scrollTriger" target="_blank">ANWAR WATCHMAN HIFZA</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=652986478" class="oelinks scrollTriger" target="_blank">MUNAWAR WATCHMAN HIFZA</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=856117085" class="oelinks scrollTriger" target="_blank">ZAMEER WATCHMAN HIFZA</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=584184149" class="oelinks scrollTriger" target="_blank">BAKHT ALI WATCHMAN HIFZA</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1685742058" class="oelinks scrollTriger" target="_blank">GHULAM MUHAMMAD WATCHMAN HIFZA</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=313159344" class="oelinks scrollTriger" target="_blank">CHRISTOPHER AL FATIMA</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=775563430" class="oelinks scrollTriger" target="_blank">CHRISTOPHER AL RAHIM</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=2020103855" class="oelinks scrollTriger" target="_blank">CHRISTOPHER AL HIFZA</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1869126671" class="oelinks scrollTriger" target="_blank">GHARO LAND</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1414670914" class="oelinks scrollTriger" target="_blank">GHARO LAND COMMISSION</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=625632163" class="oelinks scrollTriger" target="_blank">GHARO LAND RASOOL BUX</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1776490553" class="oelinks scrollTriger" target="_blank">GHARO TARIQ PALIJO</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1932143731" class="oelinks scrollTriger" target="_blank">GAB</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=820301182" class="oelinks scrollTriger" target="_blank">GHULAM SHABBIR STRUCTURE</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=809917669" class="oelinks scrollTriger" target="_blank">TOFEEQ AHMED SHOWROOM</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1105318094" class="oelinks scrollTriger" target="_blank">HAMMAD BHUTTO STRUCTURE</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1180286995" class="oelinks scrollTriger" target="_blank">KHAIRPUR LAND</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=345876292" class="oelinks scrollTriger" target="_blank">MAHIRA KHAN</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=2866440" class="oelinks scrollTriger" target="_blank">AWAIS LAGHARI</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=888872677" class="oelinks scrollTriger" target="_blank">ALI AHMED TUNIO</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=747497768" class="oelinks scrollTriger" target="_blank">HANEEF KHASKHELI</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=2094804844" class="oelinks scrollTriger" target="_blank">ASHIQUE ALI</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=283099492" class="oelinks scrollTriger" target="_blank">PARVAIS KHASKHELI</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=482524087" class="oelinks scrollTriger" target="_blank">RIAZ SHAIKH</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1881964740" class="oelinks scrollTriger" target="_blank">NAIMATULLAH LAGHARI</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=66909642" class="oelinks scrollTriger" target="_blank">AIJAZ JATOI</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=893256473" class="oelinks scrollTriger" target="_blank">SAMEER SOOMRO</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=660204526" class="oelinks scrollTriger" target="_blank">ALI NAQI (PPP)</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1091272616" class="oelinks scrollTriger" target="_blank">AWAIS CHANDIO</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=312460621" class="oelinks scrollTriger" target="_blank">AMAAN ALI</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1880020207" class="oelinks scrollTriger" target="_blank">ILYAS ANEES SOOMRO</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=2101783388" class="oelinks scrollTriger" target="_blank">ROMANA SIDDIQUI</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=2101783388" class="oelinks scrollTriger" target="_blank">SANIA</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=589191439" class="oelinks scrollTriger" target="_blank">AKHTAR QURESHI</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=242557386" class="oelinks scrollTriger" target="_blank">SHAHTAJ KHAN NIAZI</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1979258822" class="oelinks scrollTriger" target="_blank">NOMAN ALI BHUTTO</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=304979324" class="oelinks scrollTriger" target="_blank">YASEEN KHASKHELI</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=587352421" class="oelinks scrollTriger" target="_blank">RAHIB KHASKHELI</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1349026022" class="oelinks scrollTriger" target="_blank">MUHAMMAD HASSAN KHASKHELI</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1312560345" class="oelinks scrollTriger" target="_blank">SAJID</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=908683226" class="oelinks scrollTriger" target="_blank">SATTAR GABOL (COOK)</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=486893659" class="oelinks scrollTriger" target="_blank">GULSHAN CHANDIO</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=145135565" class="oelinks scrollTriger" target="_blank">MAZHAR ALI</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1162544500" class="oelinks scrollTriger" target="_blank">SALEEM KANDHROS</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=85932135" class="oelinks scrollTriger" target="_blank">ELECTRICITY CHARGES PH/2</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=781520754" class="oelinks scrollTriger" target="_blank">ELECTRICITY PH/2 PAYABLE</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=602176906" class="oelinks scrollTriger" target="_blank">F:3 WATER CHARGES</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1095709171" class="oelinks scrollTriger" target="_blank">ZIA UL ISLAM</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=27735532" class="oelinks scrollTriger" target="_blank">S.S SECURITY COMPANY</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1568616867" class="oelinks scrollTriger" target="_blank">F-3 40 COMM</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1913993712" class="oelinks scrollTriger" target="_blank">F-3 50</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=4716839" class="oelinks scrollTriger" target="_blank">REVENUE DEVELOPMENT HIFZA</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1283395918" class="oelinks scrollTriger" target="_blank">POWER HIFZA</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1531655470" class="oelinks scrollTriger" target="_blank">2 TIMES VERIFICATION HIFZA</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=925258452" class="oelinks scrollTriger" target="_blank">ABDULLAH SHAH GHAZI GOTH F-2</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1298711326" class="oelinks scrollTriger" target="_blank">AL RAHIM RAZA CITY</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1992151244" class="oelinks scrollTriger" target="_blank">ABDULLAH SHAH GHAZI GOTH F-3</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=36357082" class="oelinks scrollTriger" target="_blank">PH/2 B-91</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1257045696" class="oelinks scrollTriger" target="_blank">PH/2 B-65</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=2137627502" class="oelinks scrollTriger" target="_blank">PH/2 B-83</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1624837122" class="oelinks scrollTriger" target="_blank">PH/2 B-113</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=104126594" class="oelinks scrollTriger" target="_blank">MUHAMMAD SALEEM KHAN 19-C</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1391754691" class="oelinks scrollTriger" target="_blank">SALEEM KHAN LOAN</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1649914013" class="oelinks scrollTriger" target="_blank">BRIGADIER HARIS</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=65927521" class="oelinks scrollTriger" target="_blank">F-2 47 48</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1311225997" class="oelinks scrollTriger" target="_blank">F-2 302</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=570650513" class="oelinks scrollTriger" target="_blank">F-2 218</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1902826444" class="oelinks scrollTriger" target="_blank">F-2 49 COMM</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=329407297" class="oelinks scrollTriger" target="_blank">PH/2 B-61</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1926287975" class="oelinks scrollTriger" target="_blank">MOVEN PICK</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1341555513" class="oelinks scrollTriger" target="_blank">HAMDULLAH MOVEN PICK</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=184186205" class="oelinks scrollTriger" target="_blank">FARM HOUSE LAND GADAP</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1934823426" class="oelinks scrollTriger" target="_blank">RASHID WITH AQIB PARTNER</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1996606504" class="oelinks scrollTriger" target="_blank">AMRISECTOR A-52</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1996606504" class="oelinks scrollTriger" target="_blank">F-2 140</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1234371436" class="oelinks scrollTriger" target="_blank">B-48 B-51</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=2024844754" class="oelinks scrollTriger" target="_blank">F-2 217</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=2077762043" class="oelinks scrollTriger" target="_blank">MUMTAZ 19-C</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1703067406" class="oelinks scrollTriger" target="_blank">SSGC CONTRACT</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=382857126" class="oelinks scrollTriger" target="_blank">SSGC CONNECTION CHRGES PH/2</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=382857126" class="oelinks scrollTriger" target="_blank">SSGC CONNECTION CHRGES F-3</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1577212419" class="oelinks scrollTriger" target="_blank">NORTHERN DREAMS</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=343763516" class="oelinks scrollTriger" target="_blank">F-2 361 362</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=574210177" class="oelinks scrollTriger" target="_blank">AL HIFZA STREET LIGHTS</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1755798958" class="oelinks scrollTriger" target="_blank">F-2 238</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1357639585" class="oelinks scrollTriger" target="_blank">40 SQY PH/2</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=574210177" class="oelinks scrollTriger" target="_blank">STREET LIGHTS</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=341593227" class="oelinks scrollTriger" target="_blank">TAHIR BHAI AL FATIMA</a>
+          <hr>
+          <a href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1525943458" class="oelinks scrollTriger" target="_blank">CHRISTOPHER AL HIFZA</a>
+          <hr>
+        </div>
+      </div>
+      <!-- <div class="fatima"> -->
+      <ul class="blocka">
+        <!-- AL FATIMA BLOCK A -->
+
+        <h3 class="heading">AL FATIMA BLOCK A</h3>
+        <br />
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1qsZxdi-Xf7osMixFfFF8BLZIFTFYezrIN5JcS7nXR-I/edit#gid=0&range=A1:M1"
+            target="_blank"
+            >CURRENT MASTER BLOCK A</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1OhtP8oAq-9fl-h6BX7SiR9V64ovygnzBrF6PjOBuqnA/edit#gid=0&range=B1"
+            target="_blank"
+            >INSTALLMENT BLOCK A</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1c4ha1VVg412irkazmj-lsUoJpdZBUORbDGNQWcJkUbE/edit#gid=1557490521&range=A1"
+            target="_blank"
+            >PLOT DETAILS BLOCK A</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1o_y1MA0Uj9YyyhitPgZcGskLvrx-_yR7AN8ydW60g_8/edit#gid=0&range=A1:I1"
+            target="_blank"
+            >PLOT LIST BLOCK A</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/160w8cenOtOg0xa6SRS8HAVz4gTGqh2S5qiGOZXfb8og/edit#gid=0"
+            target="_blank"
+            >MONTHLY RECOVERY</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://drive.google.com/drive/folders/1BWmYw0DT6CAQy4RZn1HugT_uDvrqFXgC"
+            target="_blank"
+            >FILE COPPIES</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1wCrftItsRQZWob4Fwh5wgScSQIe6u2-M3hJOVwrdXKY/edit#gid=0&range=A1"
+            target="_blank"
+            >RECEIPT RECORD</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1R-6ajDjf22UajUaLytOofcgnmbF05e6OVycWVamN3vE/edit#gid=0&range=A1:B1"
+            target="_blank"
+            >ALLAUDDIN STATEMENT</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/19yGcelZHTSEw32RPrafJnVRV7bzP9QFjaxF6EyfTp44/edit#gid=0"
+            target="_blank"
+            >BLOCK A FILE INDEX</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1Z4v7Vs4tfbJscdn4z7F5VuEWsns1UCfpdWGrgTvaQO0/edit#gid=0&range=A1:D2"
+            target="_blank"
+            >INCOME STATEMENT</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1pcX8ADw8SsPeuOmAF_dxquh6ZM-iCXwm56mgBJ-e2co/edit#gid=0&range=A1:A2"
+            target="_blank"
+            >ASHFAQUE AHMED</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=800022764"
+            target="_blank"
+            >AL FATIMA EXPENSE</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=795065869"
+            target="_blank"
+            >RASOOL BUX JAKHRO</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=919546821"
+            target="_blank"
+            >QALANDER BUX</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=313159344"
+            target="_blank"
+            >CHRISTOPHER BHATTI</a
+          >
+        </li>
+        <hr>
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1xSqVau9kGPbzKcH_RPxHkpqKyHASCfTrz6PkHAxoF34/edit#gid=0"
+            target="_blank"
+            >FILE WORK</a
+          >
+        </li>
+        <hr>
+      </ul>
+
+      <ul class="blocka blockb">
+        <!-- AL FATIMA BLOCK B -->
+
+        <h3 class="heading">AL FATIMA BLOCK B</h3>
+        <br />
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1xvauWcpmSLYGHg4hqqzzSfscUeuO2sggnx6NNftMKtE/edit#gid=0&range=A1:M1"
+            target="_blank"
+            >CURRENT MASTER BLOCK B</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/18m0cck2XtMI6G_6FiqCYRDGMdPfxE-sQflsb0BmfGQg/edit#gid=0&range=A1:AB2"
+            target="_blank"
+            >INSTALLMENT BLOCK B</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1c4ha1VVg412irkazmj-lsUoJpdZBUORbDGNQWcJkUbE/edit#gid=1949443308"
+            target="_blank"
+            >PLOT DETAILS BLOCK B</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1o_y1MA0Uj9YyyhitPgZcGskLvrx-_yR7AN8ydW60g_8/edit#gid=0&range=A1:I1"
+            target="_blank"
+            >PLOT LIST BLOCK B</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1HETFASt1XnuNeu54jD-p866Yw5Lm12NLR01PzkCnqd4/edit#gid=0&range=C1"
+            target="_blank"
+            >INSTALLMENT SCHEDULE</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://drive.google.com/drive/folders/1BWmYw0DT6CAQy4RZn1HugT_uDvrqFXgC"
+            target="_blank"
+            >FILE COPPIES</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/19yGcelZHTSEw32RPrafJnVRV7bzP9QFjaxF6EyfTp44/edit#gid=640888834"
+            target="_blank"
+            >FILE INDEX</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1H9j_emsa_OB-a-saYkvB-fMctO7PZUL41_vEWYKra74/edit#gid=0&range=A1:F2"
+            target="_blank"
+            >INCOME STATEMENT</a
+          >
+        </li>
+        <hr>
+      </ul>
+      <ul class="blocka">
+        <!-- AL HIFZA CITY -->
+
+        <h3 class="heading">AL HIFZA CITY</h3>
+        <br />
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1qs-vbQX56VpDv55M9BznIF4VwG-nHkWQESjjWf44sH8/edit#gid=0&range=A1:M1"
+            target="_blank"
+            >CURRENT MASTER 1</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1tXhHo-aIw_VIcS4LM8hLX9nOtkOJz3owSjdz5RidQ4g/edit#gid=923497266&range=A1"
+            target="_blank"
+            >CURRENT MASTER 2</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1CIUbPgzm3DRdoZS42tqXaof3GMx5Q9x214YtI3AWjAQ/edit#gid=0&range=A1"
+            target="_blank"
+            >INSTALLMENT</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1-XkEnmt7xIgJLQ1n-t34WGGp62nyAKzjco1I7VwlZu8/edit#gid=0"
+            target="_blank"
+            >PLOT LIST</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1DLVm0ys6GOmuomwmXMUsoEcQ_aLOotQ5fsmd1JbaupM/edit#gid=1557490521&range=A1"
+            target="_blank"
+            >PLOT DETAILS</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1Jt7E7QLyXyGU7uYodZusBezW3JEn8YMJwuZICRostAQ/edit#gid=0&range=A1:B2"
+            target="_blank"
+            >AH TOTAL INCOME</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/11s4VE2_w5e0js1SBAYX8hHWVNeYuFaBW4WKKD9Kcws8/edit#gid=0&range=A1"
+            target="_blank"
+            >RECEIPT RECORD</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1PU5hzGxKnWbCAunC9fP9migAopQXUb8a2Lyj2BsMCTE/edit#gid=0&range=A1"
+            target="_blank"
+            >RECOVERY CONTACTS</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/11_ZNa3c2RjEgpDXKK3W2iEOcaP4HXR8lArCqwJ8b1mE/edit#gid=0&range=A1:G2"
+            target="_blank"
+            >FILE INDEX</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1CgL-X2Tucv6ssrKzHJWU2sFXA4jq9EqPjafbc2V_NcM/edit#gid=0&range=A1"
+            target="_blank"
+            >PLOT ADJUSTMENT</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/149yzG5Bhl6ACR7opcTEKDmvJ2jGtoyqOUTeM6GL26Rg/edit#gid=208154137"
+            target="_blank"
+            >TRANSFER PENDING FILES</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1Kba6wV0AUMveHupCeudJh7r_ni66x_rZbIQOeORvLeY/edit#gid=0"
+            target="_blank"
+            >AL HIFZA EXPENSE</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=574210177"
+            target="_blank"
+            >ILYAS TAAK</a
+          >
+        </li>
+        <hr>
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1525943458"
+            target="_blank"
+            >CHRISTOPHER ELECTRIC</a
+          >
+        </li>
+        <hr>
+      </ul>
+      <ul class="blocka">
+        <!-- INCOME AND EXPENSE -->
+
+        <h3 class="heading">INCOME AND EXPENSE</h3>
+        <br />
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1qm7Dli2anIwfGkowTVEV1-ZwkSJKYSoedeIwf098yNQ/edit#gid=397214923&range=A1"
+            target="_blank"
+            >ALL INCOME AND EXPENSE</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1OBMsZFtEBotnSziZJV8pl38JH3DPe23I7NYaAkf1D_I/edit#gid=0&range=A1:B1"
+            target="_blank"
+            >MONTHLY INCOME/EXPENSE</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1yF6Z0h2rM2qLyN_i1NzsILgesKxI49MLya9DzhJxSJo/edit#gid=0"
+            target="_blank"
+            >MONTHLY SALARY RECORD</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1Nqet8bq7UiPh9mXaDPzJR46kckSAlBy-c_hPYc5EB3I/edit#gid=0&range=A1"
+            target="_blank"
+            >3 PH INCOME EXPENSE</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1yKABhWHoR5oLdhA70h6xgQugJ8yklZpti2hAzHeeanY/edit#gid=1498232717&range=A1:E1"
+            target="_blank"
+            ><span class="iecd"> INCOME/EXPENSE CH# DETAILS</span></a
+          >
+        </li>
+        <hr />
+        <br>
+        <h3 class="heading">SSGC</h3>
+        
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1703067406"
+            target="_blank"
+            >GAS CONTRACT</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=382857126"
+            target="_blank"
+            >PH/2 GAS CHARGES</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1057640543"
+            target="_blank"
+            >F3 GAS CHARGES</a
+          >
+        </li>
+        <HR></HR>
+      </ul>
+      <ul class="blocka">
+        <!-- OTHER ACCOUNTS -->
+
+        <h3 class="heading">OTHER ACCOUNTS</h3>
+        <br />
+        <hr />
+        <li>
+          <a
+            class="index oeonclick"
+            style="cursor: pointer;"
+            >OTHER EXPENDITURE</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1LVW4cFUHykx8X9FK83P_h8jixYScVLXoNc3ckHtgnnU/edit#gid=0&range=A1:A4"
+            target="_blank"
+            >OFFICE EXPENDITURE</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1-yF-J4WxZXhPMMBSIbjB-RIfwhlCdqd8nJ1kY9YZWjA/edit#gid=1165353570&range=A1:A2"
+            target="_blank"
+            >KASHIF KHASKHELI</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1odTBZX3TOUAfB04TcDSAMsQT-oITOM-H2Gn3RbSMa0w/edit#gid=2066415227&range=A1:B2"
+            target="_blank"
+            >IRSHADULLAH</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1LYsSGdZlYY7nqdnhVCSsqvabbYq7a7f6a4ktt24W1hk/edit#gid=856013604&range=A1:E2"
+            target="_blank"
+            >CONTRACTOR PAYMENTS</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/19NbyVcGVXWyJTelSRAOaLjBxkLRQ7sx6He20CRNPhsA/edit#gid=641047839&range=C2"
+            target="_blank"
+          >
+            RAZA HEIGHTS</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1_f0IhhghvGE1Y9R-1PD2xR1FAyB4NwYccnNcSNmXgYU/edit#gid=1279316628"
+            target="_blank"
+          >
+            PH/2 ELECTRICITY</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1Qeo1A2PZ1Z9RbzmpMRVGtJ8d4tYWjs78P9ybPEslzZ0/edit#gid=0&range=A1:B1"
+            target="_blank"
+          >
+            CASH AND BANK BOOK</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1cxD_AXSv72b7AKM4CT56eYejebG03OmXcqM3fx8OXeg/edit#gid=0&range=A1"
+            target="_blank"
+          >
+            19-C REGISTER RECORD</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1RPss4akv-74Hc0Rg57awtgSQdtleMmwR6VRtyGF0sHA/edit#gid=0&range=A1"
+            target="_blank"
+          >
+            SONERY BANK STATEMENT</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1qpH8BIp3F7wh4sCSQc5z7szPQI__MZR3wcagigXvYNA/edit#gid=0&range=A1:B1"
+            target="_blank"
+          >
+            QALANDER BUX STATEMENT</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/13lbBCXYDPEHd_4rsieHweseEbqFHdDoxTXNlQmk-DCw/edit#gid=0&range=A1"
+            target="_blank"
+          >
+            AL FATIMA REG EXPENSE</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1c3pdu08HEQ3n6tWPj0eY7zOCG8hN6bzPVCFyU2m7PB4/edit#gid=0&range=A1:C2"
+            target="_blank"
+          >
+            CHEQUE NUMBERS</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1Nqet8bq7UiPh9mXaDPzJR46kckSAlBy-c_hPYc5EB3I/edit#gid=0&range=A1"
+            target="_blank"
+          >
+            PH/2 F2 F3 I/E</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1bDRZOshrCshh-b4EoTDi1VvWF0MaTpv_zE0M72mbNEs/edit#gid=0"
+            target="_blank"
+          >
+            PH-2 ELECTRICITY METER</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1i-1UR3GaWUPZL5VV_-0ZryCmVNixEhQ7ZoTQlMmRPko/edit#gid=702907881&range=A1"
+            target="_blank"
+          >
+            3 PHASE MAIN DEV DUES</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1KhFZYqM7QiDDRd6Ioc0B2f893jYMUe8FEN3x1fxQ3Jc/edit#gid=2051613210"
+            target="_blank"
+          >
+            OTHER SHEETS</a
+          >
+        </li>
+      </ul>
+      <ul class="blocka">
+        <!-- TMD BOOK -->
+
+        <h3 class="heading">PHASE-3 TMD</h3>
+        <br />
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1GNnfzXiv8oY2t-uH9urmu-vQPyE7XMZxXxGO34huYdU/edit#gid=747393339&range=A1:A4"
+            target="_blank"
+            >TMD BOOK</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1yU0inydzD77VIhraxU_pHXwErYFeNYwYBH9fpTlkQ0w/edit?ts=5faf7f7f#gid=0&range=A1"
+            target="_blank"
+            >TRANSFER UPDATING</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1qgLGccT5mfpSGVTlzmb-VPohfwmkA_295i6amUcfbpk/edit#gid=1221967101&range=A1"
+            target="_blank"
+            >OWNERS VERIFICATION</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://drive.google.com/drive/folders/1CPXk_9vbmxIK-mfRh05WF2O9u4FbdWQH"
+            target="_blank"
+            >TRANSFER LETTERS</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1Gt1H8OtwbV2ggsoETDrV9hWvQgAk8p-CLmyWIQ-D1e8/edit#gid=0&range=1:1000"
+            target="_blank"
+            >FLAT TRANSFERING</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1E-pBn4Fv_mExOhXim-0nM0SaAYCSUKuMj3ZMBKIEgR4/edit#gid=0"
+            target="_blank"
+          >
+            CONTACT INFORMATION</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1i-1UR3GaWUPZL5VV_-0ZryCmVNixEhQ7ZoTQlMmRPko/edit#gid=702907881"
+            target="_blank"
+          >
+            DEVELOPMENT</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1Qeo1A2PZ1Z9RbzmpMRVGtJ8d4tYWjs78P9ybPEslzZ0/edit#gid=0&range=A1:B1"
+            target="_blank"
+          >
+            CASH AND BANK BOOK</a
+          >
+        </li>
+        <HR></HR>
+        <h3 class="heading">MAINTENANCE</h3>
+        <!-- <BR></BR> -->
+        
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1gk-Xy_aqIM_NBEDro6xqha3DTLsJo1G5war3m9kFsgE/edit#gid=0&range=A1:E2"
+            target="_blank"
+          >
+            MAINTENANCE RAZA CITY A</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1jo8NET2aHeJmOHaQF3Lglp7YaV3ObM2CT3M8GH1Zbek/edit#gid=0"
+            target="_blank"
+          >
+            MAINTENANCE RAZA CITY B</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1LThK8us6SCRLPMO9AZ7p4UjGGNV87rTchBDVeHUantw/edit#gid=0"
+            target="_blank"
+          >
+            MAINTENANCE F2 01-200</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1RERrlv4SqMXgsq0QtnXq6d884E711FTWA98DnW4gyaY/edit#gid=0&range=A5:I5"
+            target="_blank"
+          >
+            MAINTENANCE F2 201-402</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1jRJXlH6qS1b_Lw6MEXuElqBby41jQSj7Lv_sXafuxsw/edit?usp=drive_link"
+            target="_blank"
+          >
+            MAINTENANCE F3 01-200</a
+          >
+        </li>
+        <hr />
+	      <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1P6T4Wozm8wCRdCu9uFpTGvJK8toCGmayWjkHonw2xCw/edit?usp=drive_link"
+            target="_blank"
+          >
+            MAINTENANCE F3 201-370</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1AWAATtQMf7t8xLdv_hwBbmSxtvf-zUyPAHNCD0nuEGA/edit#gid=0&range=A1"
+            target="_blank"
+          >
+            MONTHLY MAINT RECORD</a
+          >
+        </li>
+        <hr />
+        <li>
+          <a
+            class="index"
+            href="https://docs.google.com/spreadsheets/d/1ofRRMyrpAwrvxbjwEtvBrLL2gkg_aYx9gszXiPBV-HI/edit#gid=0&range=A1"
+            target="_blank"
+          >
+            PH-2 F2 2020 MAINT</a
+          >
+        </li>
+        <hr>
+        
+      </ul>
+    </div>
+    <!-- Schedule Calculator -->
+    <div class="main">
+      <div class="inputs">
+        <div class="input">
+          <p>Square Yards</p>
+          <input class="text-input" type="text" id="sqy" />
+        </div>
+        <div class="input">
+          <p>Charges Count</p>
+          <input class="text-input" type="text" id="charges-count" />
+        </div>
+        <div class="input">
+          <p>Paid Amount</p>
+          <input class="text-input" type="text" id="paid" />
+        </div>
+      </div>
+      <div class="outputs">
+        <div class="output">
+          <p>Cost</p>
+          <p id="cost">0</p>
+        </div>
+        <div class="output">
+          <p>Discount</p>
+          <p id="discount">0</p>
+        </div>
+        <div class="output">
+          <p>5% Charges</p>
+          <p id="charges">0</p>
+        </div>
+        <div class="output">
+          <p>Final Cost</p>
+          <p id="final-cost">0</p>
+        </div>
+        <div class="output">
+          <p>Instalments</p>
+          <p id="install">0</p>
+        </div>
+      </div>
+
+      <div class="inputs">
+        <div class="input">
+          <p>Custom Installment</p>
+          <input class="text-input" type="text" id="install-input" />
+        </div>
+        <div class="input">
+          <p>Make Round</p>
+          <input class="text-input" type="text" id="make-round" />
+        </div>
+      </div>
+      <div class="outputs">
+        <div class="output">
+          <p>Remainder</p>
+          <p id="remainder">0</p>
+        </div>
+        <div class="output">
+          <p>Last Installment</p>
+          <p id="last-install">0</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/
+gsap/3.11.3/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/gsap.min.js" integrity="sha512-7Au1ULjlT8PP1Ygs6mDZh9NuQD0A5prSrAUiPHMXpU6g3UMd8qesVnhug5X4RoDr35x5upNpx0A6Sisz1LSTXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+      // position of hearts and blur cursor
+document.addEventListener("mousemove", function (x) {
+  gsap.to(".crsr", {
+    left: x.x + 8,
+    top: x.y + 10,
+    opacity: 1,
+  });
+
+  gsap.to(".blur-cursor", {
+    left: x.x - 125,
+    top: x.y - 125,
+  });
+});
+//generate random color
+function getRandomColor() {
+  var letters = "0123456789ABCDEF".split("");
+  var color = "#";
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  // console.log(letters);
+  return color;
+}
+//Change Hearts Color
+const heartsColorChange = setInterval(() => {
+  let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+  gsap.to(".crsr", {
+    color: getRandomColor(),
+  });
+}, 1000);
+// on click function other expenditure
+const otherExpenditure = document.querySelector(".oeonclick");
+const expendituresheet = document.querySelector(".other-expenditure");
+otherExpenditure.addEventListener("click", () => {
+  expendituresheet.classList.toggle("show-expenditure");
+  otherExpenditure.classList.toggle("background-active");
+});
+
+// logic for search ========================>>>>>>>>
+
+const searchInput = document.getElementById("search-expenditure");
+const searchResults = document.querySelector(".search-results");
+const contentDiv = document.querySelector(".oe-items");
+
+function performSearch() {
+  const searchQuery = searchInput.value.toLocaleLowerCase();
+  const searchItems = contentDiv.querySelectorAll("a");
+
+  let matchingParagraphs = [];
+
+  searchItems.forEach((item) => {
+    const text = item.textContent.toLocaleLowerCase();
+    if (text.includes(searchQuery)) {
+      matchingParagraphs.push(item);
+    }
+  });
+  //display search results ===>>>
+  displaySearchResults(matchingParagraphs);
+}
+
+function displaySearchResults(results) {
+  searchResults.innerHTML = "";
+  if (results.length == 0) {
+    searchResults.innerHTML = "no record found";
+  } else {
+    results.forEach((result) => {
+      searchResults.appendChild(result);
+    });
+  }
+}
+searchInput.addEventListener("input", performSearch);
+
+//Al Hifza Schedule
+//inputs
+const sqyInput = document.getElementById("sqy");
+const chargesCountInput = document.getElementById("charges-count");
+const paidInput = document.getElementById("paid");
+const cusInstallInput = document.querySelector("#install-input");
+const makeRound = document.querySelector("#make-round");
+//outputs
+const costOutput = document.getElementById("cost");
+const discountOutput = document.getElementById("discount");
+const chargesOutput = document.getElementById("charges");
+const finalCostOutput = document.getElementById("final-cost");
+const installmentsOutput = document.getElementById("install");
+const remainder = document.getElementById("remainder");
+const lastInstallment = document.getElementById("last-install");
+
+// <<<=========== master Function ===========>>>
+function mainFunction() {
+  //cost Output
+  costOutput.textContent = ((3500000 / 120) * Number(sqyInput.value)).toFixed(
+    0
+  );
+  //Discount Output
+  Number(sqyInput.value) >= 120
+    ? (discountOutput.textContent = 500000)
+    : (discountOutput.textContent = (
+        (500000 / 120) *
+        Number(sqyInput.value)
+      ).toFixed(0));
+  //charges Output
+  chargesOutput.textContent = (
+    Number(costOutput.textContent) *
+    0.05 *
+    Number(chargesCountInput.value)
+  ).toFixed(0);
+  // finalCost Output
+  finalCostOutput.textContent = (
+    Number(costOutput.textContent) -
+    Number(discountOutput.textContent) +
+    Number(chargesOutput.textContent)
+  ).toFixed(0);
+  // Installment Output
+  if (Number(cusInstallInput.value) > 0) {
+    installmentsOutput.textContent = (
+      (Number(finalCostOutput.innerText) - Number(paidInput.value)) /
+      Number(cusInstallInput.value)
+    ).toFixed(0);
+  } else {
+    installmentsOutput.textContent = (
+      (Number(finalCostOutput.innerText) - Number(paidInput.value)) /
+      16
+    ).toFixed(0);
+  }
+  if (Number(makeRound.value) > 0) {
+    remainder.textContent =
+      Number(installmentsOutput.textContent) % Number(makeRound.value);
+  } else {
+    remainder.textContent = 0;
+  }
+
+  //last installment output
+  if (Number(cusInstallInput.value) > 0) {
+    lastInstallment.textContent =
+      Number(cusInstallInput.value) * Number(remainder.textContent);
+  } else {
+    lastInstallment.textContent = 16 * Number(remainder.textContent);
+  }
+}
+
+//<<<========== sqy listener Function ==========>>>
+sqyInput.addEventListener("change", () => {
+  mainFunction();
+});
+
+//<<<====== chargescount listener Function =====>>>
+chargesCountInput.addEventListener("change", () => {
+  mainFunction();
+});
+//<<<====== paid listener Function =====>>>
+
+paidInput.addEventListener("change", () => {
+  mainFunction();
+});
+//<<<====== cusInstall listener Function =====>>>
+cusInstallInput.addEventListener("change", () => {
+  mainFunction();
+});
+//<<<====== Make Round listener Function =====>>>
+makeRound.addEventListener("change", () => {
+  mainFunction();
+  installmentsOutput.textContent =
+    Number(installmentsOutput.textContent) - Number(remainder.textContent);
+});
+
+//schedule class toggle
+const scheduleClick = document.querySelector("#clickSchedule");
+const scheduleDiv = document.querySelector(".main");
+
+scheduleClick.addEventListener("click", () => {
+  scheduleDiv.classList.toggle("main2");
+  scheduleClick.classList.toggle("active-tb");
+});
+
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    scheduleDiv.classList.remove("main2");
+    scheduleClick.classList.remove("active-tb");
+    expendituresheet.classList.remove("show-expenditure");
+    otherExpenditure.classList.remove("background-active");
+  }
+});
+//onLoad
+document.body.className = "hidden-header";
+document.body.className = "appear";
+
+document.querySelector(".header").className = "hidden-header";
+setTimeout(() => {
+  document.querySelector(".hidden-header").className = "header";
+}, 500);
+
+//block El Enter onload
+const blockEl = document.querySelectorAll(".blocka");
+let index = 0;
+function showNextEl() {
+  if (index < blockEl.length) {
+    blockEl[index].className = "blocka-appear";
+    index++;
+  } else {
+    clearInterval(blockInterval);
+  }
+}
+const blockInterval = setInterval(showNextEl, 100);
+
+const btnElements = document.querySelector(".buttons");
+const elementsAray = [btnElements];
+
+elementsAray.forEach((el) => {
+  el.addEventListener("mouseover", () => {
+    gsap.to(".blur-cursor", {
+      scale: 0.05,
+      backgroundColor : '#000',
+    });
+  });
+
+  el.addEventListener("mouseleave", () => {
+    gsap.to(".blur-cursor", {
+      scale: 1,
+	backgroundColor : '#00000080',
+    });
+  });
+});
+
+gsap.to(".scrollTriger", {
+  opacity: 1,
+  duration: 0.1,
+  stagger: 0.1,
+  x: 0,
+  scrub: true,
+  start: "top center",
+  end: "bottom center",
+  scrollTrigger: {
+    trigger: ".scrollTriger",
+  },
+});
+
+    </script>
+  </body>
+</html>
