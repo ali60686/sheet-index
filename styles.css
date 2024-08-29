@@ -127,7 +127,6 @@ ul li a:hover {
   background-color: var(--hover-bg-org);
   color: var(--heading-text-color);
   font-weight: bold;
-  scale: 1.2;
   transition: all 0.5s;
 }
 .blocka {
