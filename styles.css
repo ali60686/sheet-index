@@ -9,6 +9,8 @@
   /* --fonts: "Ubuntu Mono", monospace; */
   /* Themes */
 
+  --color: #dddddd;
+
   /*<<<< Cyan Theme  #229799 >>>>*/
   /* --main-bg-org: #229799;
   --main-bg-dark: #312f2f;
@@ -22,6 +24,7 @@
   --hover-bg-org: #ff9100;
   --heading-bg: #f4a261;
   --heading-text-color: var(--main-bg-dark);
+  --hr-bg-color: var(--heading-bg);
 
   /* <<<< Blue Theme #075cc4 >>>>*/
   /* --main-bg-org: #075cc4;
@@ -102,19 +105,19 @@ body {
 }
 ul li a {
   text-decoration: none;
-  color: white;
+  color: var(--color);
   padding: 8px 15px;
-  border-radius: 8px;
+  border-radius: 20px;
   margin-top: 10px;
-  transition: background 300ms ease-in;
-
   font-size: 18px;
   position: relative;
   cursor: pointer;
+  font-weight: 500;
+  transition: background 300ms ease-in;
 }
 .topbuttons {
   background-color: var(--main-bg-dark);
-  color: #fff;
+  color: var(--color);
   position: relative;
   z-index: 9;
   display: flex;
@@ -126,7 +129,6 @@ ul li a {
 ul li a:hover {
   background-color: var(--hover-bg-org);
   color: var(--heading-text-color);
-  font-weight: bold;
   transition: all 0.5s;
 }
 .blocka {
@@ -192,14 +194,19 @@ ul li a:hover {
   font-size: 15px;
 }
 hr {
-  opacity: 0.15;
+  opacity: 0.25;
+  border: 0;
+  border-top: 2px solid var(--hr-bg-color);
+  color: var(--hr-bg-color);
+  background-color: var(--hr-bg-color);
+  height: 2px;
 }
 .crsr {
   opacity: 1;
   position: absolute;
   animation: heartbeat 1s linear infinite;
   pointer-events: none;
-  color: #fff;
+  color: var(--color);
 }
 .crsr-1 {
   font-size: 2rem;
@@ -277,10 +284,9 @@ hr {
   position: absolute;
   top: 6rem;
   left: 65%;
-  border: 1px solid white;
-  padding: 0.15rem;
+  border: 2px solid var(--hr-bg-color);
   z-index: 9999;
-  border-radius: 20px;
+  border-radius: 10px;
   display: none;
   animation: animate 0.3s ease;
 }
@@ -314,7 +320,7 @@ hr {
 }
 .oelinks {
   text-decoration: none;
-  color: #fff;
+  color: var(--color);
   display: inline-block;
   padding: 0.7rem 1rem;
   margin: 5px;
@@ -335,12 +341,12 @@ hr {
 /* search for expenditure*/
 #search-expenditure {
   outline: none;
-  /* border: 2px solid var(--hover-bg-org); */
+  border: 2px solid var(--heading-bg);
   background: transparent;
   width: 90%;
   margin: auto;
   display: inline-block;
-  color: #fff;
+  color: var(--color);
   padding: 10px;
   border-radius: 20px;
 
@@ -360,7 +366,7 @@ hr {
   flex-direction: column;
   align-items: center;
   background-color: var(--main-bg-dark);
-  color: #fff;
+  color: var(--color);
   border-radius: 30px;
   padding: 2rem 0;
   position: absolute;
@@ -405,7 +411,7 @@ hr {
   display: block;
   height: 2rem;
   width: 100%;
-  color: #fff;
+  color: var(--color);
   padding: 15px;
   border-radius: 20px;
 
@@ -435,11 +441,10 @@ hr {
 .active-tb {
   background-color: var(--hover-bg-org);
   color: var(--main-bg-dark);
-  transform: translateY(5px);
+  transform: translateY(3px);
 }
 .topbuttons:hover {
   transform: translateY(3px);
-  box-shadow: 0 0 3px 3px #33333369;
 }
 /*  Response to mobile 920px width */
 @media screen and (max-width: 920px) {
