@@ -124,9 +124,11 @@ ul li a {
 }
 
 ul li a:hover {
-  color: white;
+  /* color: white; */
   background-color: var(--hover-bg-org);
-  color: black;
+  color: var(--heading-text-color);
+  font-weight: bold;
+  scale: 1.2;
   transition: all 0.5s;
 }
 .blocka {
