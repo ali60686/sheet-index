@@ -1,6 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
 :root {
+  /* Fonts */
+
+  /* urbanist-font */
+  --fonts: "Urbanist", "sans-sarif";
+  /* Ubuntu-fonts */
+  /* --fonts: "Ubuntu Mono", monospace; */
+  /* Themes */
+
   /*<<<< Cyan Theme  #229799 >>>>*/
   /* --main-bg-org: #229799;
   --main-bg-dark: #312f2f;
@@ -62,7 +70,7 @@ body {
   background-size: cover;
   overflow: hidden;
   opacity: 0;
-  font-family: "Ubuntu Mono", monospace;
+  font-family: var(--fonts);
 }
 .hidden-header {
   transform: translateY(-15px);
@@ -167,9 +175,11 @@ ul li a:hover {
   border-radius: 15px;
 }
 .index {
+  width: 100%;
   border: none;
-  font-size: 16px;
-  line-height: 35px;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 34px;
   position: relative;
   z-index: 999;
 }
