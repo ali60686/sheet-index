@@ -124,7 +124,6 @@ ul li a {
 }
 
 ul li a:hover {
-  /* color: white; */
   background-color: var(--hover-bg-org);
   color: var(--heading-text-color);
   font-weight: bold;
