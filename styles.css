@@ -3,23 +3,31 @@
 :root {
   /*<<<< Cyan Theme  #229799 >>>>*/
   /* --main-bg-org: #229799;
-  --main-bg-dark: #424242;
-  --hover-bg-org: #48cfcb; */
+  --main-bg-dark: #312f2f;
+  --hover-bg-org: #48cfcb;
+  --heading-bg: #37b7c3;
+  --heading-text-color: var(--main-bg-dark); */
 
   /* <<<< Orange Theme  #e85c0d >>>>*/
   --main-bg-org: #e85c0d;
   --main-bg-dark: #191919;
   --hover-bg-org: #ff9100;
+  --heading-bg: #f4a261;
+  --heading-text-color: var(--main-bg-dark);
 
-  /* <<<< Blue Theme #03346E >>>>*/
-  /* --main-bg-org: #03346e;
+  /* <<<< Blue Theme #075cc4 >>>>*/
+  /* --main-bg-org: #075cc4;
   --main-bg-dark: #021526;
-  --hover-bg-org: #6eacda; */
+  --hover-bg-org: #6eacda;
+  --heading-bg: #bbe9ff;
+  --heading-text-color: var(--main-bg-dark); */
 
   /*<<<< Brown Theme #803D3B >>>>*/
   /* --main-bg-org: #803d3b;
   --main-bg-dark: #322c2b;
-  --hover-bg-org: #af8260; */
+  --hover-bg-org: #af8260;
+  --heading-bg: #e7d4b5;
+  --heading-text-color: var(--main-bg-dark); */
 }
 
 * {
@@ -150,10 +158,10 @@ ul li a:hover {
 }
 
 .heading {
-  color: rgba(0, 0, 0, 0.562);
+  color: var(--heading-text-color);
   margin: 10px 0 0px 10px;
   font-size: 20px;
-  background: rgba(255, 255, 255, 0.658);
+  background: var(--heading-bg);
   /* text-align: center; */
   padding: 4px;
   border-radius: 15px;
