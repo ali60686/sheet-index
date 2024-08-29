@@ -103,6 +103,14 @@ body {
   gap: 0.5rem;
   height: 50px;
 }
+
+/* .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eee;
+} */
+
 ul li a {
   text-decoration: none;
   color: var(--color);
@@ -115,6 +123,11 @@ ul li a {
   font-weight: 500;
   transition: background 300ms ease-in;
 }
+
+ul li a i {
+  margin-right: 10px;
+}
+
 .topbuttons {
   background-color: var(--main-bg-dark);
   color: var(--color);
