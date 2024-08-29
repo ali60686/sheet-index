@@ -1,4 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400&display=swap");
+
+:root {
+  /*<<<< Cyan Theme  #229799 >>>>*/
+  /* --main-bg-org: #229799;
+  --main-bg-dark: #424242;
+  --hover-bg-org: #48cfcb; */
+
+  /* <<<< Orange Theme  #e85c0d >>>>*/
+  --main-bg-org: #e85c0d;
+  --main-bg-dark: #191919;
+  --hover-bg-org: #ff9100;
+
+  /* <<<< Blue Theme #03346E >>>>*/
+  /* --main-bg-org: #03346e;
+  --main-bg-dark: #021526;
+  --hover-bg-org: #6eacda; */
+
+  /*<<<< Brown Theme #803D3B >>>>*/
+  /* --main-bg-org: #803d3b;
+  --main-bg-dark: #322c2b;
+  --hover-bg-org: #af8260; */
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -15,12 +38,19 @@
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #ff9100;
+  background-color: var(--hover-bg-org);
   border-radius: 20px;
   border: none;
 }
+
 body {
-  background: linear-gradient(45deg, #e85c0d, #191919, #e85c0d, #191919);
+  background: linear-gradient(
+    45deg,
+    var(--main-bg-org),
+    var(--main-bg-dark),
+    var(--main-bg-org),
+    var(--main-bg-dark)
+  );
   background-size: cover;
   overflow: hidden;
   opacity: 0;
@@ -38,7 +68,13 @@ body {
 .header {
   display: flex;
   justify-content: center;
-  background: (45deg, #e85c0d, #191919, #e85c0d, #191919);
+  background: (
+    45deg,
+    var(--main-bg-org),
+    var(--main-bg-dark),
+    var(--main-bg-org),
+    var(--main-bg-dark)
+  );
   background-size: cover;
   transition: all 0.3s ease;
 }
@@ -61,7 +97,7 @@ ul li a {
   cursor: pointer;
 }
 .topbuttons {
-  background-color: #191919;
+  background-color: var(--main-bg-dark);
   color: #fff;
   position: relative;
   z-index: 9;
@@ -73,7 +109,7 @@ ul li a {
 
 ul li a:hover {
   color: white;
-  background-color: #ff9100;
+  background-color: var(--hover-bg-org);
   color: black;
   transition: all 0.5s;
 }
@@ -82,7 +118,7 @@ ul li a:hover {
   flex-direction: column;
   gap: 0;
   width: 260px;
-  background: #191919;
+  background: var(--main-bg-dark);
   background-size: cover;
   margin-left: 15px;
   list-style: none;
@@ -100,7 +136,7 @@ ul li a:hover {
   flex-direction: column;
   gap: 0;
   width: 260px;
-  background: #191919;
+  background: var(--main-bg-dark);
   background-size: cover;
   margin-left: 15px;
   list-style: none;
@@ -246,7 +282,7 @@ hr {
 }
 
 .oe-items {
-  background: #191919;
+  background: var(--main-bg-dark);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -270,18 +306,18 @@ hr {
   opacity: 0;
 }
 .oelinks:hover {
-  background-color: #ff9100;
+  background-color: var(--hover-bg-org);
   color: #000;
 }
 .background-active {
-  background-color: #ff9100;
+  background-color: var(--hover-bg-org);
   color: #000;
 }
 
 /* search for expenditure*/
 #search-expenditure {
   outline: none;
-  /* border: 2px solid #FF9100; */
+  /* border: 2px solid var(--hover-bg-org); */
   background: transparent;
   width: 90%;
   margin: auto;
@@ -305,7 +341,7 @@ hr {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #191919;
+  background-color: var(--main-bg-dark);
   color: #fff;
   border-radius: 30px;
   padding: 2rem 0;
@@ -346,7 +382,7 @@ hr {
 .text-input {
   outline: none;
   border: none;
-  background-color: #191919;
+  background-color: var(--main-bg-dark);
 
   display: block;
   height: 2rem;
@@ -365,7 +401,7 @@ hr {
 
   width: 90%;
   padding: 10px;
-  background-color: #191919;
+  background-color: var(--main-bg-dark);
 
   border-radius: 10px;
 }
@@ -379,8 +415,8 @@ hr {
   transition: 0.4s all ease;
 }
 .active-tb {
-  background-color: #ff9100;
-  color: #191919;
+  background-color: var(--hover-bg-org);
+  color: var(--main-bg-dark);
   transform: translateY(5px);
 }
 .topbuttons:hover {
