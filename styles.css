@@ -80,6 +80,10 @@ body {
 main {
   width: 100vw;
   height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .hidden-header {
   transform: translateY(-15px);
@@ -206,9 +210,11 @@ ul li a:hover {
   z-index: 999;
 }
 .maincontainer {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  margin: auto;
   display: flex;
+  justify-content: center;
   margin-top: 10px;
   position: relative;
 }
