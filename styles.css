@@ -74,6 +74,7 @@ body {
   overflow: hidden;
   opacity: 0;
   font-family: var(--fonts);
+  width: 100%;
 }
 .hidden-header {
   transform: translateY(-15px);
@@ -85,6 +86,7 @@ body {
   transform: translateY(0);
 }
 .header {
+  width: 100%;
   display: flex;
   justify-content: center;
   background: (
@@ -199,6 +201,7 @@ ul li a:hover {
   z-index: 999;
 }
 .maincontainer {
+  width: 100%;
   display: flex;
   margin-top: 10px;
   position: relative;
