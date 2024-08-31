@@ -201,7 +201,8 @@ ul li a:hover {
   z-index: 999;
 }
 .maincontainer {
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   margin-top: 10px;
   position: relative;
