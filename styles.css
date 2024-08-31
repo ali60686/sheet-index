@@ -16,7 +16,9 @@
   --main-bg-dark: #312f2f;
   --hover-bg-org: #48cfcb;
   --heading-bg: #37b7c3;
-  --heading-text-color: var(--main-bg-dark); */
+  --heading-text-color: var(--main-bg-dark);
+  --hr-bg-color: var(--heading-bg);
+  --hover-text-color: #00333a; */
 
   /* <<<< Orange Theme  #e85c0d >>>>*/
   --main-bg-org: #e85c0d;
@@ -25,20 +27,25 @@
   --heading-bg: #f4a261;
   --heading-text-color: var(--main-bg-dark);
   --hr-bg-color: var(--heading-bg);
+  --hover-text-color: #333333;
 
   /* <<<< Blue Theme #075cc4 >>>>*/
   /* --main-bg-org: #075cc4;
   --main-bg-dark: #021526;
   --hover-bg-org: #6eacda;
   --heading-bg: #bbe9ff;
-  --heading-text-color: var(--main-bg-dark); */
+  --heading-text-color: var(--main-bg-dark);
+  --hr-bg-color: var(--heading-bg);
+  --hover-text-color: #f9f5e4; */
 
   /*<<<< Brown Theme #803D3B >>>>*/
   /* --main-bg-org: #803d3b;
   --main-bg-dark: #2b2625;
   --hover-bg-org: #af8260;
   --heading-bg: #e7d4b5;
-  --heading-text-color: var(--main-bg-dark); */
+  --heading-text-color: var(--main-bg-dark);
+  --hr-bg-color: var(--heading-bg);
+  --hover-text-color: #f9f5e4; */
 }
 
 * {
@@ -110,8 +117,8 @@ main {
 .buttons {
   list-style: none;
   display: flex;
+  justify-content: center;
   gap: 0.5rem;
-  height: 50px;
 }
 
 /* .button {
@@ -145,13 +152,12 @@ ul li a i {
   z-index: 9;
   display: flex;
   justify-content: center;
-  align-items: center;
   transition: all 0.3s ease;
 }
 
 ul li a:hover {
   background-color: var(--hover-bg-org);
-  color: var(--heading-text-color);
+  color: var(--hover-text-color);
   transition: all 0.5s;
 }
 .blocka {
@@ -505,7 +511,8 @@ hr {
   }
   .topbuttons {
     font-size: 14px;
-    height: 25px;
+    height: 35px;
+    gap: 0;
   }
   .buttons {
     /* flex-direction: column; */
