@@ -12,22 +12,22 @@
   --color: #dddddd;
 
   /*<<<< Cyan Theme  #229799 >>>>*/
-  /* --main-bg-org: #229799;
+  --main-bg-org: #229799;
   --main-bg-dark: #312f2f;
   --hover-bg-org: #48cfcb;
   --heading-bg: #37b7c3;
   --heading-text-color: var(--main-bg-dark);
   --hr-bg-color: var(--heading-bg);
-  --hover-text-color: #00333a; */
+  --hover-text-color: #00333a;
 
   /* <<<< Orange Theme  #e85c0d >>>>*/
-  --main-bg-org: #e85c0d;
+/*   --main-bg-org: #e85c0d;
   --main-bg-dark: #191919;
   --hover-bg-org: #ff9100;
   --heading-bg: #f4a261;
   --heading-text-color: var(--main-bg-dark);
   --hr-bg-color: var(--heading-bg);
-  --hover-text-color: #333333;
+  --hover-text-color: #333333; */
 
   /* <<<< Blue Theme #075cc4 >>>>*/
   /* --main-bg-org: #075cc4;
