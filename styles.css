@@ -12,13 +12,13 @@
   --color: #dddddd;
 
   /*<<<< Cyan Theme  #229799 >>>>*/
-  --main-bg-org: #229799;
+/*   --main-bg-org: #229799;
   --main-bg-dark: #312f2f;
   --hover-bg-org: #48cfcb;
   --heading-bg: #37b7c3;
   --heading-text-color: var(--main-bg-dark);
   --hr-bg-color: var(--heading-bg);
-  --hover-text-color: #00333a;
+  --hover-text-color: #00333a; */
 
   /* <<<< Orange Theme  #e85c0d >>>>*/
 /*   --main-bg-org: #e85c0d;
@@ -39,13 +39,13 @@
   --hover-text-color: #f9f5e4; */
 
   /*<<<< Brown Theme #803D3B >>>>*/
-  /* --main-bg-org: #803d3b;
+  --main-bg-org: #803d3b;
   --main-bg-dark: #2b2625;
   --hover-bg-org: #af8260;
   --heading-bg: #e7d4b5;
   --heading-text-color: var(--main-bg-dark);
   --hr-bg-color: var(--heading-bg);
-  --hover-text-color: #f9f5e4; */
+  --hover-text-color: #f9f5e4;
 }
 
 * {
