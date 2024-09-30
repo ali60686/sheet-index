@@ -51,8 +51,8 @@
 
 /*<<<<<< custom theme >>>>>>>>>>> */
   
-   --main-bg-org: #FFF8DB;
-  --main-bg-dark: #705C53;
+   --main-bg-org:#705C53;
+  --main-bg-dark:#FFF8DB;
   --hover-bg-org: #DCA47C;
   --heading-bg: #E68369;
   --heading-text-color: var(--main-bg-dark);
