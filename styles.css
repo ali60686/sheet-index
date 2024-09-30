@@ -21,13 +21,14 @@
   --hover-text-color: #00333a; */
 
   /* <<<< Orange Theme  #e85c0d >>>>*/
+  /*
   --main-bg-org: #e85c0d;
   --main-bg-dark: #191919;
   --hover-bg-org: #ff9100;
   --heading-bg: #f4a261;
   --heading-text-color: var(--main-bg-dark);
   --hr-bg-color: var(--heading-bg);
-  --hover-text-color: #333333; 
+  --hover-text-color: #333333; */
 
   /* <<<< Blue Theme #075cc4 >>>>*/
   /* --main-bg-org: #075cc4;
@@ -46,6 +47,19 @@
   --heading-text-color: var(--main-bg-dark);
   --hr-bg-color: var(--heading-bg);
   --hover-text-color: #f9f5e4;*/
+
+
+/*<<<<<< custom theme >>>>>>>>>>> */
+  
+  --main-bg-org: #FFF8DB;
+  --main-bg-dark: #ECCEAE;
+  --hover-bg-org: #DCA47C;
+  --heading-bg: #E68369;
+  --heading-text-color: var(--main-bg-dark);
+  --hr-bg-color: var(--heading-bg);
+  --hover-text-color: #131842;
+
+  
 }
 
 * {
