@@ -9,7 +9,7 @@
   /* --fonts: "Ubuntu Mono", monospace; */
   /* Themes */
 
-  --color: #fff;
+  --color: #131842;
 
   /*<<<< Cyan Theme  #229799 >>>>*/
 /*   --main-bg-org: #229799;
@@ -40,24 +40,24 @@
   --hover-text-color: #f9f5e4; */
 
   /*<<<< Brown Theme #803D3B >>>>*/
- --main-bg-org: #803d3b;
+/* --main-bg-org: #803d3b;
   --main-bg-dark: #2b2625;
   --hover-bg-org: #af8260;
   --heading-bg: #e7d4b5;
   --heading-text-color: var(--main-bg-dark);
   --hr-bg-color: var(--heading-bg);
-  --hover-text-color: #f9f5e4;
+  --hover-text-color: #f9f5e4; */
 
 
 /*<<<<<< custom theme >>>>>>>>>>> */
   
-  /* --main-bg-org:#705C53;
+   --main-bg-org:#705C53;
   --main-bg-dark:#FFF8DB;
   --hover-bg-org: #DCA47C;
   --heading-bg: #E68369;
   --heading-text-color: var(--main-bg-dark);
   --hr-bg-color: var(--heading-bg);
-  --hover-text-color: #131842;*/
+  --hover-text-color: #131842;
 
   
 }
