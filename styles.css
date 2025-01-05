@@ -227,6 +227,7 @@ ul li a:hover {
   line-height: 34px;
   position: relative;
   z-index: 999;
+  text-overflow:ellipsis;
 }
 .maincontainer {
   width: 100%;
