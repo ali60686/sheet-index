@@ -85,6 +85,11 @@
   border: none;
 }
 
+*:visited{
+
+  color: var(--color)
+}
+
 body {
   background: linear-gradient(
     45deg,
